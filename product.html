@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products - Akshara Mart</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <div class="brand">Akshara Mart</div>
+    <div class="nav-links">
+        <a href="cart.html">Cart</a>
+        <button id="addProductBtn" style="display:none;" onclick="openModal()">+ Add Product</button>
+        <a href="logout">Logout</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="page-header">
+        <h2>Home Appliances</h2>
+    </div>
+
+    <div id="messageBox" class="success-msg" style="display:none;"></div>
+
+    <div class="product-grid" id="productGrid">
+        <p>Loading products...</p>
+    </div>
+</div>
+
+<!-- Add Product Modal (sellers only) -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box">
+        <h3>Add New Product</h3>
+        <form action="products" method="POST">
+            <div class="form-group">
+                <label>Product Name</label>
+                <input type="text" name="name" required>
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea name="description" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Category</label>
+                <input type="text" name="category" placeholder="e.g. Refrigerator, AC, Washing Machine">
+            </div>
+            <div class="form-group">
+                <label>Price (₹)</label>
+                <input type="number" name="price" step="0.01" min="0" required>
+            </div>
+            <div class="form-group">
+                <label>Stock Quantity</label>
+                <input type="number" name="stockQuantity" min="0" required>
+            </div>
+            <div class="form-group">
+                <label>Image URL</label>
+                <input type="text" name="imageUrl" placeholder="https://...">
+            </div>
+            <button type="submit" class="btn-primary">Add Product</button>
+            <button type="button" class="btn-primary" style="background:#6b7280; margin-top:8px;" onclick="closeModal()">Cancel</button>
+        </form>
+    </div>
+</div>
+
+<script src="js/products.js"></script>
+</body>
+</html>
