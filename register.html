@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register - Akshara Mart</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <h1>Create Account</h1>
+        <p class="subtitle">Join Akshara Mart as a buyer or seller</p>
+
+        <div id="errorBox" class="error-msg" style="display:none;"></div>
+
+        <form action="register" method="POST">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" name="fullName" placeholder="Your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email ID</label>
+                <input type="email" name="email" placeholder="you@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Choose a password" required>
+            </div>
+
+            <div class="form-group">
+                <label>Register as</label>
+                <select name="role" required>
+                    <option value="BUYER">Buyer</option>
+                    <option value="SELLER">Seller</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-primary">Create Account</button>
+        </form>
+
+        <div class="auth-footer">
+            Already have an account? <a href="login.html">Login here</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const errorBox = document.getElementById('errorBox');
+    const errors = {
+        missing_fields: 'Please fill in all fields.',
+        email_exists: 'An account with this email already exists.',
+        server_error: 'Something went wrong. Please try again later.'
+    };
+    if (params.get('error') && errors[params.get('error')]) {
+        errorBox.textContent = errors[params.get('error')];
+        errorBox.style.display = 'block';
+    }
+</script>
+</body>
+</html>
