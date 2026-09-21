@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Placed - Akshara Mart</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="success-wrapper">
+    <div class="success-card">
+        <div class="checkmark">&#10003;</div>
+        <h1>Order Placed Successfully!</h1>
+        <p id="orderMsg">Thank you for shopping with Akshara Mart.</p>
+        <a href="products.html" class="btn-secondary">Continue Shopping</a>
+    </div>
+</div>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const orderId = params.get('orderId');
+    if (orderId) {
+        document.getElementById('orderMsg').textContent =
+            'Your order #' + orderId + ' has been placed successfully.';
+    }
+</script>
+</body>
+</html>
