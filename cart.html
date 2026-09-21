@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Cart - Akshara Mart</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <div class="brand">Akshara Mart</div>
+    <div class="nav-links">
+        <a href="products.html">Continue Shopping</a>
+        <a href="logout">Logout</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="page-header">
+        <h2>My Cart</h2>
+    </div>
+
+    <div id="errorBox" class="error-msg" style="display:none;"></div>
+
+    <div id="cartItems"><p>Loading cart...</p></div>
+
+    <div class="cart-summary" id="cartSummary" style="display:none;">
+        <div class="total-row">
+            <span>Total</span>
+            <span id="totalAmount">₹0</span>
+        </div>
+        <form action="checkout" method="POST">
+            <button type="submit" class="btn-checkout">Proceed to Pay</button>
+        </form>
+    </div>
+</div>
+
+<script src="js/cart.js"></script>
+</body>
+</html>
